@@ -1,5 +1,4 @@
 // app.js
-// Pääsovelluslogiikka - natiivilla JavaScriptillä, ei ulkoisia kirjastoja
 
 // ========== KONFIGURAATIO ==========
 // Netlify-funktion päätepiste (toimii sekä paikallisesti että tuotannossa)

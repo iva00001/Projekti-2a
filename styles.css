@@ -1,0 +1,322 @@
+/* styles.css */
+/* Moderni, tumma teema musiikkisovellukselle */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  min-height: 100vh;
+  color: #e0e0e0;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 1rem;
+}
+
+/* Ohjauspaneeli */
+.controls {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.search-box {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#artist-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #444;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#artist-input:focus {
+  outline: none;
+  border-color: #feca57;
+}
+
+#artist-input::placeholder {
+  color: #666;
+}
+
+#search-btn {
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(238, 90, 36, 0.4);
+}
+
+/* Pikavalinnat */
+.quick-picks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.quick-label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.quick-btn {
+  padding: 0.4rem 1rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.quick-btn:hover {
+  background: rgba(254, 202, 87, 0.15);
+  border-color: #feca57;
+  color: #feca57;
+}
+
+/* Tilaviesti */
+.status {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.status.loading { background: rgba(72, 219, 251, 0.1); color: #48dbfb; }
+.status.error { background: rgba(255, 107, 107, 0.1); color: #ff6b6b; }
+.status.warning { background: rgba(254, 202, 87, 0.1); color: #feca57; }
+
+.hidden { display: none !important; }
+
+/* Albumiruudukko */
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.album-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+}
+
+.album-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+.album-cover {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #1a1a2e;
+}
+
+.album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.album-card:hover .album-cover img {
+  transform: scale(1.08);
+}
+
+.album-info {
+  padding: 1rem;
+}
+
+.album-name {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-listeners {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Albumin yksityiskohdat */
+.album-detail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 20, 0.97);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.detail-header {
+  display: flex;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.close-btn {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close-btn:hover { background: rgba(255, 107, 107, 0.3); }
+
+.detail-cover {
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.detail-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-meta h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-artist { color: #feca57; font-size: 1.1rem; margin-bottom: 1rem; }
+.detail-release, .detail-listeners, .detail-playcount {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.detail-tracks {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-tracks h3 {
+  margin-bottom: 1rem;
+  color: #feca57;
+}
+
+.track-list {
+  list-style: none;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+
+.track-item:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.track-number {
+  width: 2rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.track-name {
+  flex: 1;
+}
+
+.track-duration {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.detail-loading, .detail-error {
+  text-align: center;
+  padding: 3rem;
+  color: #888;
+}
+
+/* Responsiivisuus */
+@media (max-width: 600px) {
+  body { padding: 1rem; }
+  header h1 { font-size: 1.6rem; }
+  .search-box { flex-direction: column; }
+  .albums-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+  .detail-header { flex-direction: column; align-items: center; text-align: center; }
+  .detail-cover { width: 180px; height: 180px; }
+}

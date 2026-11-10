@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Last.fm Musiikkiselain</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎵 Last.fm Musiikkiselain</h1>
+    <p class="subtitle">Selaa artistien albumeita ja kappaleita</p>
+  </header>
+
+  <main>
+    <!-- Hakukenttä ja artistivalitsin -->
+    <section class="controls">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="artist-input" 
+          placeholder="Kirjoita artistin nimi..."
+          autocomplete="off"
+        >
+        <button id="search-btn">Hae</button>
+      </div>
+
+      <!-- Pikavalinnat suosituille artisteille -->
+      <div class="quick-picks" id="quick-picks">
+        <span class="quick-label">Pikavalinnat:</span>
+        <!-- Napit lisätään dynaamisesti JavaScriptillä -->
+      </div>
+    </section>
+
+    <!-- Tilaviestialue -->
+    <div id="status-message" class="status hidden"></div>
+
+    <!-- Albumi-listauksen säiliö -->
+    <section id="albums-container" class="albums-grid"></section>
+
+    <!-- Albumin tietojen modaali/näkymä -->
+    <section id="album-detail" class="album-detail hidden"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

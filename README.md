@@ -24,8 +24,7 @@ Listaa vähintään kolme sovellukseesi suunniteltua toimintoa:
 
 - **Julkaistu sovellus:** https://meek-sfogliatella-386317.netlify.app
 - **GitHub-repositorio:** https://github.com/iva00001/Projekti-2a/blob/main/README.md
-- **Projektin videoesittely:** [Lisää tähän videon osoite](https://example.com/)
-
+- **Projektin videoesittely:** https://youtu.be/TSbIhSsi1T4
 ## Tietoja sovelluksesta
 
 **[Last.fm Musiikkiselain]** on verkkosovellus, jossa selataan artistien albumeja ja kappaleita
